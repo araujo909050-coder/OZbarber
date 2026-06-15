@@ -1,4 +1,5 @@
 import React from 'react';
+import { cadastrarProfissionalAction } from '../actions';
 
 export default function CadastroProfissionais() {
   return (
@@ -29,12 +30,16 @@ export default function CadastroProfissionais() {
           Cadastrar Novo Profissional
         </h2>
 
-        <form style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+        {/* Conexão com a Server Action */}
+        <form action={cadastrarProfissionalAction} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+          
           {/* Campo: Nome */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             <label style={{ color: '#737373', fontSize: '0.9rem' }}>Nome do Profissional</label>
             <input 
               type="text" 
+              name="nome"
+              required
               placeholder="Ex: Rodrigo Silva" 
               style={{
                 backgroundColor: '#0A0A0A',
@@ -52,6 +57,8 @@ export default function CadastroProfissionais() {
             <label style={{ color: '#737373', fontSize: '0.9rem' }}>E-mail</label>
             <input 
               type="email" 
+              name="email"
+              required
               placeholder="rodrigo@ozbarber.com" 
               style={{
                 backgroundColor: '#0A0A0A',
@@ -69,6 +76,8 @@ export default function CadastroProfissionais() {
             <label style={{ color: '#737373', fontSize: '0.9rem' }}>Função / Cargo</label>
             <input 
               type="text" 
+              name="funcao"
+              required
               placeholder="Ex: Barbeiro Master, Cabeleireiro, Visagista" 
               style={{
                 backgroundColor: '#0A0A0A',
@@ -86,6 +95,8 @@ export default function CadastroProfissionais() {
             <label style={{ color: '#737373', fontSize: '0.9rem' }}>Comissão (%)</label>
             <input 
               type="number" 
+              name="porcentagem"
+              required
               placeholder="Ex: 40" 
               max="100"
               min="0"
@@ -100,9 +111,9 @@ export default function CadastroProfissionais() {
             />
           </div>
 
-          {/* Botão Salvar */}
+          {/* Botão Salvar - Tipo submit para disparar */}
           <button 
-            type="button" 
+            type="submit" 
             style={{
               backgroundColor: '#FFFFFF',
               color: '#0A0A0A',
