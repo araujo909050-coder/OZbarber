@@ -1,4 +1,5 @@
 import React from 'react';
+import { cadastrarServicoAction } from '../actions';
 
 export default function CadastroServicos() {
   return (
@@ -29,12 +30,16 @@ export default function CadastroServicos() {
           Cadastrar Novo Serviço
         </h2>
 
-        <form style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+        {/* ATENÇÃO: Aqui conectamos a Server Action */}
+        <form action={cadastrarServicoAction} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+          
           {/* Campo: Nome do Serviço */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
             <label style={{ color: '#737373', fontSize: '0.9rem' }}>Nome do Serviço</label>
             <input 
               type="text" 
+              name="nome" // O Next.js usa esse 'name' para pegar o valor
+              required
               placeholder="Ex: Corte Degradê, Barba Completa..." 
               style={{
                 backgroundColor: '#0A0A0A',
@@ -52,6 +57,8 @@ export default function CadastroServicos() {
             <label style={{ color: '#737373', fontSize: '0.9rem' }}>Valor (R$)</label>
             <input 
               type="number" 
+              name="preco" // Identificador para a nossa Action
+              required
               placeholder="0,00" 
               step="0.01"
               style={{
@@ -67,8 +74,9 @@ export default function CadastroServicos() {
 
           {/* Campo: Tempo de Duração */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ color: '#737373', fontSize: '0.9rem' }}>Duração Estimada (minutos)</label>
+            <label style={{ color: '#737373', fontSize: '0.9rem' }}>Duração Estimada</label>
             <select 
+              name="duracao" // Identificador para a nossa Action
               style={{
                 backgroundColor: '#0A0A0A',
                 border: '1px solid #737373',
@@ -80,14 +88,14 @@ export default function CadastroServicos() {
             >
               <option value="15">15 minutos</option>
               <option value="30">30 minutos</option>
-              <option value="45">45 minutes</option>
+              <option value="45">45 minutos</option>
               <option value="60">1 hora</option>
             </select>
           </div>
 
-          {/* Botão Salvar */}
+          {/* Botão Salvar - Agora do tipo submit para disparar o formulário */}
           <button 
-            type="button" 
+            type="submit" 
             style={{
               backgroundColor: '#FFFFFF',
               color: '#0A0A0A',
