@@ -1,26 +1,45 @@
 'use server';
 
-// Função para salvar um Novo Serviço no Banco de Dados
+import { neon } from '@neondatabase/serverless';
+
+// Inicializa a conexão com o banco usando a URL secreta do seu .env
+const sql = neon(process.env.DATABASE_URL!);
+
+// Função para salvar um Novo Serviço no Neon
 export async function cadastrarServicoAction(formData: FormData) {
   const nome = formData.get('nome') as string;
   const preco = parseFloat(formData.get('preco') as string);
   const duracao = parseInt(formData.get('duracao') as string);
 
-  // Aqui o Next.js vai conectar com o Neon e rodar:
-  // INSERT INTO servicos (nome, preco, duracao_minutos) VALUES (nome, preco, duracao);
-  console.log('Salvando no banco o serviço:', { nome, preco, duracao });
-  
-  // Como estamos no GitHub direto, nas próximas etapas vamos estruturar o driver de conexão!
+  try {
+    // Insere os dados diretamente na tabela 'servicos' do Neon
+    await sql`
+      INSERT INTO servicos (nome, preco, duracao_minutos) 
+      VALUES (${nome}, ${preco}, ${duracao})
+    `;
+    console.log('Serviço salvo com sucesso no Neon!');
+  } catch (error) {
+    console.error('Erro ao salvar serviço:', error);
+    throw new Error('Não foi possível salvar o serviço.');
+  }
 }
 
-// Função para salvar um Novo Profissional no Banco de Dados
+// Função para salvar um Novo Profissional no Neon
 export async function cadastrarProfissionalAction(formData: FormData) {
   const nome = formData.get('nome') as string;
   const email = formData.get('email') as string;
   const funcao = formData.get('funcao') as string;
   const porcentagem = parseFloat(formData.get('porcentagem') as string);
 
-  // Aqui o Next.js vai conectar com o Neon e rodar:
-  // INSERT INTO profissionais (nome, email, funcao, porcentagem) VALUES (nome, email, funcao, porcentagem);
-  console.log('Salvando no banco o profissional:', { nome, email, funcao, porcentagem });
+  try {
+    // Insere os dados diretamente na tabela 'profissionais' do Neon
+    await sql`
+      INSERT INTO profissionais (nome, email, funcao, porcentagem) 
+      VALUES (${nome}, ${email}, ${funcao}, ${porcentagem})
+    `;
+    console.log('Profissional salvo com sucesso no Neon!');
+  } catch (error) {
+    console.error('Erro ao salvar profissional:', error);
+    throw new Error('Não foi possível salvar o profissional.');
+  }
 }
