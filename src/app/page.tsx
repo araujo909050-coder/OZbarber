@@ -43,13 +43,12 @@ export default function Home() {
           borderImage: 'linear-gradient(to right, #737373, #ffffff, #a3a3a3, #ffffff, #525252) 1'
         }} />
 
-        {/* LOGO TEXTUAL "OZbarber" EM METAL 3D */}
+        {/* LOGO TEXTUAL "OZBarber" EM METAL 3D */}
         <h1 style={{ 
-          fontSize: '3.5rem', 
+          fontSize: '3.8rem', 
           fontWeight: '800', 
           margin: 0, 
-          textTransform: 'uppercase', 
-          letterSpacing: '2px',
+          letterSpacing: '1px',
           fontStyle: 'italic', // Curvatura elegante inspirada na marca
           // Gradiente de reflexo metálico vertical idêntico ao aço escovado
           background: 'linear-gradient(to bottom, #ffffff 0%, #d4d4d4 25%, #737373 50%, #ffffff 75%, #404040 100%)',
@@ -62,7 +61,7 @@ export default function Home() {
             drop-shadow(0px 4px 6px rgba(0,0,0,0.6))
           `
         }}>
-          OZbarber
+          OZBarber
         </h1>
 
         {/* ONDA FLUIDA INFERIOR (Envolvendo o texto por baixo) */}
