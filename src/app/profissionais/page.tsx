@@ -17,98 +17,113 @@ export default function ProfissionaisPage() {
 
   return (
     <div style={{
-      backgroundColor: '#050505',
-      color: '#E0E0E0',
+      backgroundColor: '#030303',
+      backgroundImage: 'radial-gradient(circle at 50% 10%, #1a1510 0%, #030303 70%)',
+      color: '#F5F5F5',
       minHeight: '100vh',
-      fontFamily: 'sans-serif',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      padding: '3rem 2rem'
+      padding: '4rem 2rem'
     }}>
       {/* Cabeçalho Premium */}
-      <div style={{ textAlign: 'center', marginBottom: '3rem', position: 'relative', width: '100%', maxWidth: '450px' }}>
-        <Link href="/" style={{ position: 'absolute', left: 0, top: '5px', color: '#D4AF37', textDecoration: 'none', fontSize: '0.9rem', letterSpacing: '1px' }}>
-          ← VOLTAR
+      <div style={{ textAlign: 'center', marginBottom: '3.5rem', position: 'relative', width: '100%', maxWidth: '480px' }}>
+        <Link href="/" style={{ 
+          position: 'absolute', 
+          left: 0, 
+          top: '6px', 
+          color: '#D4AF37', 
+          textDecoration: 'none', 
+          fontSize: '0.8rem', 
+          letterSpacing: '2px',
+          fontWeight: '500',
+          opacity: 0.8
+        }}>
+          ← HOME
         </Link>
-        <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold', margin: 0, textTransform: 'uppercase', letterSpacing: '2px', color: '#FFFFFF' }}>
-          Membros da Equipe
+        <h2 style={{ fontSize: '2rem', fontWeight: '800', margin: 0, textTransform: 'uppercase', letterSpacing: '4px', color: '#FFFFFF' }}>
+          Especialistas
         </h2>
-        <p style={{ color: '#737373', fontSize: '0.85rem', margin: '5px 0 0', letterSpacing: '1px' }}>
-          CADASTRO DE PROFISSIONAIS PREMIUM
+        <p style={{ color: '#8C8C8C', fontSize: '0.8rem', margin: '8px 0 0', letterSpacing: '2px', textTransform: 'uppercase' }}>
+          Time de Profissionais de Elite
         </p>
       </div>
 
-      {/* Formulário Elegante */}
+      {/* Formulário Alta Qualidade */}
       <form action={actionSalvarProfissional} style={{
         width: '100%',
-        maxWidth: '450px',
-        backgroundColor: '#0A0A0A',
-        border: '1px solid #1A1A1A',
-        padding: '2.5rem',
-        borderRadius: '12px',
-        boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+        maxWidth: '480px',
+        backgroundColor: 'rgba(15, 15, 15, 0.75)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(212, 175, 55, 0.15)',
+        padding: '3rem 2.5rem',
+        borderRadius: '16px',
+        boxShadow: '0 20px 50px rgba(0,0,0,0.7)',
         display: 'flex',
         flexDirection: 'column',
-        gap: '1.5rem'
+        gap: '1.8rem'
       }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.8rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px', color: '#A3A3A3' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+          <label style={{ fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '2px', color: '#BA9A2D' }}>
             Nome do Profissional
           </label>
           <input 
             type="text" 
             name="nome" 
             required 
-            placeholder="Ex: Carlos Silva"
+            placeholder="Ex: Carlos M. Silva"
             style={{
-              padding: '1rem',
-              backgroundColor: '#121212',
-              border: '1px solid #262626',
-              borderRadius: '6px',
+              padding: '1.1rem',
+              backgroundColor: '#0D0D0D',
+              border: '1px solid #222222',
+              borderRadius: '8px',
               color: '#FFFFFF',
-              fontSize: '0.95rem',
-              outline: 'none'
+              fontSize: '1rem',
+              outline: 'none',
+              letterSpacing: '0.5px'
             }}
           />
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <label style={{ fontSize: '0.8rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px', color: '#A3A3A3' }}>
-            Especialidade / Cargo
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+          <label style={{ fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '2px', color: '#BA9A2D' }}>
+            Especialidade Principal
           </label>
           <input 
             type="text" 
             name="cargo" 
             required 
-            placeholder="Ex: Barbeiro Visagista"
+            placeholder="Ex: Master Visagista & Navalha de Ouro"
             style={{
-              padding: '1rem',
-              backgroundColor: '#121212',
-              border: '1px solid #262626',
-              borderRadius: '6px',
+              padding: '1.1rem',
+              backgroundColor: '#0D0D0D',
+              border: '1px solid #222222',
+              borderRadius: '8px',
               color: '#FFFFFF',
-              fontSize: '0.95rem',
-              outline: 'none'
+              fontSize: '1rem',
+              outline: 'none',
+              letterSpacing: '0.5px'
             }}
           />
         </div>
 
         <button type="submit" style={{
           marginTop: '1rem',
-          padding: '1.1rem',
-          backgroundColor: '#1A1A1A',
-          color: '#FFFFFF',
+          padding: '1.2rem',
+          background: 'linear-gradient(135deg, #1e1915 0%, #12100e 100%)',
+          color: '#D4AF37',
           border: '1px solid #D4AF37',
-          borderRadius: '6px',
-          fontSize: '1rem',
-          fontWeight: '600',
+          borderRadius: '8px',
+          fontSize: '0.95rem',
+          fontWeight: '700',
           cursor: 'pointer',
           textTransform: 'uppercase',
-          letterSpacing: '1px',
-          boxShadow: '0 4px 15px rgba(212, 175, 55, 0.1)'
+          letterSpacing: '2px',
+          boxShadow: '0 6px 20px rgba(212, 175, 55, 0.08)',
+          transition: 'all 0.3s ease'
         }}>
-          🏆 Salvar Profissional
+          Ingressar Especialista à Equipe
         </button>
       </form>
     </div>
