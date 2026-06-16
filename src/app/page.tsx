@@ -62,7 +62,7 @@ export default function Home() {
         <div style={{ width: '100%', maxWidth: '240px', marginBottom: '2.5rem', textAlign: 'center' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
-            src="/logo.png" 
+            src="/image_eaa609.png" 
             alt="OZ Barber Logo" 
             style={{ 
               width: '100%', 
