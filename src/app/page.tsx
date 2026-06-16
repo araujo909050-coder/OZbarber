@@ -4,131 +4,179 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div style={{ 
-      backgroundColor: '#0c0c0c',
-      // Fundo premium simulando a textura e iluminação estúdio da foto original
-      backgroundImage: 'radial-gradient(circle at 50% 45%, #222222 0%, #0a0a0a 75%)',
-      color: '#E5E5E5', 
+      backgroundColor: '#0a0a0a',
+      // Fundo de tijolos escuros de barbearia antiga com iluminação focal centralizada super baixa
+      backgroundImage: 'linear-gradient(to bottom, rgba(5, 5, 5, 0.88), rgba(12, 12, 12, 0.94)), url("https://images.unsplash.com/photo-1605497746444-ac9da5848af7?q=80&w=1200&auto=format&fit=crop")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      color: '#F5F5F5', 
       minHeight: '100vh', 
-      fontFamily: '"Montserrat", "Helvetica Neue", sans-serif',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '2rem 1.5rem',
+      padding: '2rem 1rem',
       overflowX: 'hidden'
     }}>
       
-      {/* AREA DO LETREIRO DIGITAL BASEADO NA FOTO (image_eaa609.png) */}
+      {/* AREA DA LOGO OFICIAL IDENTICA À IMAGEM */}
       <div style={{ 
         width: '100%', 
-        maxWidth: '550px', 
+        maxWidth: '650px', 
         textAlign: 'center', 
-        marginBottom: '4.5rem',
-        position: 'relative',
-        padding: '2rem 0'
+        marginBottom: '5rem',
+        filter: 'drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.95)) drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.6))'
       }}>
         
-        {/* ONDA FLUIDA SUPERIOR (Efeito Metal Líquido) */}
-        <div style={{
-          position: 'absolute',
-          top: '0px',
-          left: '10%',
-          width: '55%',
-          height: '25px',
-          borderTop: '5px solid #ffffff',
-          borderRadius: '50% 50% 0 0',
-          transform: 'rotate(-4deg)',
-          filter: 'blur(0.5px) drop-shadow(0px 6px 4px rgba(0,0,0,0.9))',
-          // Gradiente metálico na borda superior
-          borderImage: 'linear-gradient(to right, #737373, #ffffff, #a3a3a3, #ffffff, #525252) 1'
-        }} />
+        <svg 
+          viewBox="0 0 700 160" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ width: '100%', height: 'auto' }}
+        >
+          {/* Gradiente de Metal Escovado Realista */}
+          <defs>
+            <linearGradient id="metalEscovado3D" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="25%" stopColor="#d6d6d6" />
+              <stop offset="50%" stopColor="#7a7a7a" />
+              <stop offset="75%" stopColor="#e3e3e3" />
+              <stop offset="100%" stopColor="#3a3a3a" />
+            </linearGradient>
+          </defs>
 
-        {/* LOGO TEXTUAL "OZBarber" EM METAL 3D */}
-        <h1 style={{ 
-          fontSize: '3.8rem', 
-          fontWeight: '800', 
-          margin: 0, 
-          letterSpacing: '1px',
-          fontStyle: 'italic', // Curvatura elegante inspirada na marca
-          // Gradiente de reflexo metálico vertical idêntico ao aço escovado
-          background: 'linear-gradient(to bottom, #ffffff 0%, #d4d4d4 25%, #737373 50%, #ffffff 75%, #404040 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          // Profundidade e sombra projetada realística na parede escura
-          filter: `
-            drop-shadow(0px 2px 1px rgba(255,255,255,0.4)) 
-            drop-shadow(0px 12px 15px rgba(0,0,0,0.95)) 
-            drop-shadow(0px 4px 6px rgba(0,0,0,0.6))
-          `
-        }}>
-          OZBarber
-        </h1>
+          {/* ONDAS METALICAS DA MARCA */}
+          {/* Onda Superior */}
+          <path 
+            d="M 65 67 C 110 52, 175 48, 212 78 C 224 88, 206 102, 218 108" 
+            stroke="url(#metalEscovado3D)" 
+            strokeWidth="6" 
+            strokeLinecap="round" 
+            fill="none" 
+          />
+          {/* Onda Inferior */}
+          <path 
+            d="M 112 114 C 150 134, 215 138, 265 118" 
+            stroke="url(#metalEscovado3D)" 
+            strokeWidth="6" 
+            strokeLinecap="round" 
+            fill="none" 
+          />
 
-        {/* ONDA FLUIDA INFERIOR (Envolvendo o texto por baixo) */}
-        <div style={{
-          position: 'absolute',
-          bottom: '10px',
-          right: '15%',
-          width: '60%',
-          height: '30px',
-          borderBottom: '5px solid #ffffff',
-          borderRadius: '0 0 50% 50%',
-          transform: 'rotate(-2deg)',
-          filter: 'blur(0.5px) drop-shadow(0px 8px 5px rgba(0,0,0,0.9))',
-          borderImage: 'linear-gradient(to right, #525252, #ffffff, #737373, #ffffff, #909090) 1'
-        }} />
-        
+          {/* TIPOGRAFIA EXATA DA IMAGEM */}
+          <g stroke="url(#metalEscovado3D)" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round" fill="none">
+            {/* O */}
+            <path d="M 95 96 C 95 80, 120 80, 120 96 C 120 112, 95 112, 95 96 Z" strokeWidth="6" />
+            
+            {/* Z */}
+            <path d="M 138 80 L 178 80 L 142 114 L 180 114" strokeWidth="6.5" />
+            
+            {/* B */}
+            <path d="M 235 72 L 235 120 M 235 72 C 254 72, 256 94, 235 94 C 258 94, 256 120, 235 120" />
+            
+            {/* A */}
+            <path d="M 270 120 L 282 72 L 294 120 M 274 104 L 290 104" />
+            
+            {/* R */}
+            <path d="M 314 120 L 314 72 C 336 72, 336 96, 314 96 L 334 120 M 314 96 L 324 96" />
+            
+            {/* B */}
+            <path d="M 355 72 L 355 120 M 355 72 C 374 72, 376 94, 355 94 C 378 94, 376 120, 355 120" />
+            
+            {/* E */}
+            <path d="M 395 120 L 395 72 L 416 72 M 395 96 L 410 96 M 395 120 L 416 120" />
+            
+            {/* R */}
+            <path d="M 435 120 L 435 72 C 457 72, 457 96, 435 96 L 455 120 M 435 96 L 445 96" />
+          </g>
+        </svg>
+
       </div>
 
-      {/* BOTÕES MINIMALISTAS - ESTILO PLATAFORMA DE ELITE (FRESHA) */}
+      {/* BOTÕES ALTAMENTE SALTADOS, RESPONSIVOS E COM CONTORNO DOURADO */}
       <div style={{ 
         display: 'flex', 
         flexDirection: 'column', 
-        gap: '1.2rem', 
+        gap: '1.5rem', 
         width: '100%', 
-        maxWidth: '360px',
+        maxWidth: '380px',
         zIndex: 10
       }}>
         
-        <Link href="/servicos" style={{ textDecoration: 'none' }}>
+        <Link href="/servicos" style={{ textDecoration: 'none', width: '100%' }}>
           <button style={{
             width: '100%',
-            padding: '1.2rem',
-            backgroundColor: 'rgba(18, 18, 18, 0.6)',
-            color: '#ffffff',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            borderRadius: '4px', 
-            fontSize: '0.85rem',
-            fontWeight: '600',
+            padding: '1.4rem 1rem',
+            // Estrutura de chapa de ACM grafite que salta sobre o fundo
+            background: 'linear-gradient(180deg, #242424 0%, #121212 100%)',
+            border: '1px solid #383838',
+            borderRadius: '8px', 
             cursor: 'pointer',
-            textTransform: 'uppercase',
-            letterSpacing: '3px',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-            backdropFilter: 'blur(8px)',
-            transition: 'all 0.3s ease'
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            // Empilhamento de sombras para o efeito saltado tridimensional agressivo
+            boxShadow: `
+              0 1px 0 #404040 inset,
+              0 4px 0 #0d0d0d,
+              0 12px 25px rgba(0, 0, 0, 0.75)
+            `,
+            transition: 'all 0.15s ease'
           }}>
-            Gerenciar Serviços
+            <span style={{
+              fontSize: '0.95rem',
+              fontWeight: '800',
+              textTransform: 'uppercase',
+              letterSpacing: '3px',
+              color: '#FFFFFF',
+              // Contorno dourado estrito nas letras para linkar com as outras páginas
+              textShadow: `
+                -1px -1px 0 #D4AF37,  
+                 1px -1px 0 #D4AF37,
+                -1px  1px 0 #D4AF37,
+                 1px  1px 0 #D4AF37
+              `
+            }}>
+              Gerenciar Serviços
+            </span>
           </button>
         </Link>
 
-        <Link href="/profissionais" style={{ textDecoration: 'none' }}>
+        <Link href="/profissionais" style={{ textDecoration: 'none', width: '100%' }}>
           <button style={{
             width: '100%',
-            padding: '1.2rem',
-            backgroundColor: 'rgba(18, 18, 18, 0.6)',
-            color: '#ffffff',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            borderRadius: '4px',
-            fontSize: '0.85rem',
-            fontWeight: '600',
+            padding: '1.4rem 1rem',
+            background: 'linear-gradient(180deg, #242424 0%, #121212 100%)',
+            border: '1px solid #383838',
+            borderRadius: '8px',
             cursor: 'pointer',
-            textTransform: 'uppercase',
-            letterSpacing: '3px',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-            backdropFilter: 'blur(8px)',
-            transition: 'all 0.3s ease'
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: `
+              0 1px 0 #404040 inset,
+              0 4px 0 #0d0d0d,
+              0 12px 25px rgba(0, 0, 0, 0.75)
+            `,
+            transition: 'all 0.15s ease'
           }}>
-            Gerenciar Equipe
+            <span style={{
+              fontSize: '0.95rem',
+              fontWeight: '800',
+              textTransform: 'uppercase',
+              letterSpacing: '3px',
+              color: '#FFFFFF',
+              // Contorno dourado nas letras
+              textShadow: `
+                -1px -1px 0 #D4AF37,  
+                 1px -1px 0 #D4AF37,
+                -1px  1px 0 #D4AF37,
+                 1px  1px 0 #D4AF37
+              `
+            }}>
+              Gerenciar Equipe
+            </span>
           </button>
         </Link>
       </div>
