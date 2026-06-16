@@ -2,17 +2,23 @@ import React from 'react';
 import { neon } from '@neondatabase/serverless';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export default function ServicosPage() {
   async function actionSalvarServico(formData: FormData) {
     'use server';
-    const sql = neon(process.env.DATABASE_URL!);
-    const nome = formData.get('nome') as string;
-    const preco = parseFloat(formData.get('preco') as string);
+    try {
+      const sql = neon(process.env.DATABASE_URL!);
+      const nome = formData.get('nome') as string;
+      const preco = parseFloat(formData.get('preco') as string);
 
-    await sql`
-      INSERT INTO servicos (nome, preco) 
-      VALUES (${nome}, ${preco})
-    `;
+      await sql`
+        INSERT INTO servicos (nome, preco) 
+        VALUES (${nome}, ${preco})
+      `;
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -27,7 +33,6 @@ export default function ServicosPage() {
       alignItems: 'center',
       padding: '4rem 2rem'
     }}>
-      {/* Cabeçalho Premium */}
       <div style={{ textAlign: 'center', marginBottom: '3.5rem', position: 'relative', width: '100%', maxWidth: '480px' }}>
         <Link href="/" style={{ 
           position: 'absolute', 
@@ -50,7 +55,6 @@ export default function ServicosPage() {
         </p>
       </div>
 
-      {/* Formulário Alta Qualidade */}
       <form action={actionSalvarServico} style={{
         width: '100%',
         maxWidth: '480px',
@@ -125,8 +129,7 @@ export default function ServicosPage() {
           cursor: 'pointer',
           textTransform: 'uppercase',
           letterSpacing: '2px',
-          boxShadow: '0 6px 20px rgba(212, 175, 55, 0.08)',
-          transition: 'all 0.3s ease'
+          boxShadow: '0 6px 20px rgba(212, 175, 55, 0.08)'
         }}>
           Adicionar Serviço Premium
         </button>
