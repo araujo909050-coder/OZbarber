@@ -1,0 +1,20 @@
+import React from 'react';
+
+export const metadata = {
+  title: 'OZbarber',
+  description: 'Sistema Premium de Gestão de Barbearia',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="pt-BR">
+      <body style={{ margin: 0, padding: 0, backgroundColor: '#0A0A0A' }}>
+        {children}
+      </body>
+    </html>
+  );
+}
