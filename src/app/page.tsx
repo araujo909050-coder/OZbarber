@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <div style={{ 
       backgroundColor: '#050505',
-      // Puxa a imagem da barbearia gótica enviada e adiciona uma camada escura para dar contraste
-      backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(5, 5, 5, 0.85)), url("/fundo-barbearia.jpg")',
+      // Ajustado para o nome exato do arquivo no seu GitHub com espaços e extensão maiúscula
+      backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(5, 5, 5, 0.85)), url("/ChatGPT Image 16 de jun. de 2026, 13_39_58.png")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
@@ -21,7 +21,7 @@ export default function Home() {
       overflowX: 'hidden'
     }}>
       
-      {/* ESPAÇO DA LOGO PRINCIPAL UTILIZANDO O ARQUIVO REAL (logo-oz.png) */}
+      {/* ESPAÇO DA LOGO PRINCIPAL UTILIZANDO O ARQUIVO REAL COM NOME EXATO */}
       <div style={{ 
         width: '100%', 
         maxWidth: '520px', 
@@ -31,13 +31,12 @@ export default function Home() {
       }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img 
-          src="/logo-oz.png" 
+          src="/ChatGPT Image 16 de jun. de 2026, 14_02_09.png" 
           alt="OZ Barber" 
           style={{ 
             width: '100%', 
             height: 'auto',
             objectFit: 'contain',
-            // Sombra projetada para destacar a logo sobre a imagem de fundo
             filter: 'drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.95)) drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.8))'
           }} 
         />
@@ -59,7 +58,6 @@ export default function Home() {
           <button style={{
             width: '100%',
             padding: '1.3rem 1rem',
-            // Base em degradê grafite ultra-escuro para dar corpo tridimensional
             background: 'linear-gradient(180deg, #1f1f1f 0%, #0d0d0d 100%)',
             border: '1px solid #333333',
             borderRadius: '10px', 
@@ -67,7 +65,6 @@ export default function Home() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            // Multi-camadas de sombras para fazer o botão saltar agressivamente da tela
             boxShadow: `
               0 2px 0 #3a3a3a inset,
               0 6px 0 #000000,
@@ -81,7 +78,6 @@ export default function Home() {
               textTransform: 'uppercase',
               letterSpacing: '3px',
               color: '#FFFFFF',
-              // Contorno dourado nas letras para conversar com as páginas internas
               textShadow: `
                 -1px -1px 0 #D4AF37,  
                  1px -1px 0 #D4AF37,
@@ -118,7 +114,6 @@ export default function Home() {
               textTransform: 'uppercase',
               letterSpacing: '3px',
               color: '#FFFFFF',
-              // Contorno dourado nas letras
               textShadow: `
                 -1px -1px 0 #D4AF37,  
                  1px -1px 0 #D4AF37,
