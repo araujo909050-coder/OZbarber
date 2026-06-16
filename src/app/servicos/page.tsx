@@ -1,116 +1,136 @@
 import React from 'react';
-import { cadastrarServicoAction } from '../actions';
+import { neon } from '@neondatabase/serverless';
+import Link from 'next/link';
 
-export default function CadastroServicos() {
+export default function ServicosPage() {
+  async function actionSalvarServico(formData: FormData) {
+    'use server';
+    const sql = neon(process.env.DATABASE_URL!);
+    const nome = formData.get('nome') as string;
+    const preco = parseFloat(formData.get('preco') as string);
+
+    await sql`
+      INSERT INTO servicos (nome, preco) 
+      VALUES (${nome}, ${preco})
+    `;
+  }
+
   return (
-    <div style={{ 
-      backgroundColor: '#0A0A0A', 
-      color: '#FFFFFF', 
-      minHeight: '100vh', 
-      fontFamily: 'sans-serif',
-      padding: '2rem'
+    <div style={{
+      backgroundColor: '#030303',
+      backgroundImage: 'radial-gradient(circle at 50% 10%, #1a1510 0%, #030303 70%)',
+      color: '#F5F5F5',
+      minHeight: '100vh',
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: '4rem 2rem'
     }}>
-      {/* Cabeçalho */}
-      <div style={{ maxWidth: '500px', margin: '0 auto', marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2rem', fontWeight: 'bold', borderBottom: '1px solid #1A1A1A', paddingBottom: '1rem' }}>
-          💈 OZbarber <span style={{ color: '#737373', fontSize: '1.2rem', fontWeight: 'normal' }}>| Serviços</span>
-        </h1>
+      {/* Cabeçalho Premium */}
+      <div style={{ textAlign: 'center', marginBottom: '3.5rem', position: 'relative', width: '100%', maxWidth: '480px' }}>
+        <Link href="/" style={{ 
+          position: 'absolute', 
+          left: 0, 
+          top: '6px', 
+          color: '#D4AF37', 
+          textDecoration: 'none', 
+          fontSize: '0.8rem', 
+          letterSpacing: '2px',
+          fontWeight: '500',
+          opacity: 0.8
+        }}>
+          ← HOME
+        </Link>
+        <h2 style={{ fontSize: '2rem', fontWeight: '800', margin: 0, textTransform: 'uppercase', letterSpacing: '4px', color: '#FFFFFF' }}>
+          Serviços
+        </h2>
+        <p style={{ color: '#8C8C8C', fontSize: '0.8rem', margin: '8px 0 0', letterSpacing: '2px', textTransform: 'uppercase' }}>
+          Menu de Experiências Exclusivas
+        </p>
       </div>
 
-      {/* Formulário de Cadastro */}
-      <div style={{ 
-        maxWidth: '500px', 
-        margin: '0 auto', 
-        backgroundColor: '#1A1A1A', 
-        padding: '2rem', 
-        borderRadius: '8px',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.3)'
+      {/* Formulário Alta Qualidade */}
+      <form action={actionSalvarServico} style={{
+        width: '100%',
+        maxWidth: '480px',
+        backgroundColor: 'rgba(15, 15, 15, 0.75)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(212, 175, 55, 0.15)',
+        padding: '3rem 2.5rem',
+        borderRadius: '16px',
+        boxShadow: '0 20px 50px rgba(0,0,0,0.7)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1.8rem'
       }}>
-        <h2 style={{ fontSize: '1.3rem', marginBottom: '1.5rem', fontWeight: '600' }}>
-          Cadastrar Novo Serviço
-        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+          <label style={{ fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '2px', color: '#BA9A2D' }}>
+            Nome do Serviço
+          </label>
+          <input 
+            type="text" 
+            name="nome" 
+            required 
+            placeholder="Ex: Corte Texturizado + Barber Spa"
+            style={{
+              padding: '1.1rem',
+              backgroundColor: '#0D0D0D',
+              border: '1px solid #222222',
+              borderRadius: '8px',
+              color: '#FFFFFF',
+              fontSize: '1rem',
+              outline: 'none',
+              letterSpacing: '0.5px'
+            }}
+          />
+        </div>
 
-        {/* ATENÇÃO: Aqui conectamos a Server Action */}
-        <form action={cadastrarServicoAction} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-          
-          {/* Campo: Nome do Serviço */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ color: '#737373', fontSize: '0.9rem' }}>Nome do Serviço</label>
-            <input 
-              type="text" 
-              name="nome" // O Next.js usa esse 'name' para pegar o valor
-              required
-              placeholder="Ex: Corte Degradê, Barba Completa..." 
-              style={{
-                backgroundColor: '#0A0A0A',
-                border: '1px solid #737373',
-                borderRadius: '4px',
-                padding: '0.8rem',
-                color: '#FFFFFF',
-                outline: 'none'
-              }}
-            />
-          </div>
-
-          {/* Campo: Preço / Valor */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ color: '#737373', fontSize: '0.9rem' }}>Valor (R$)</label>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+          <label style={{ fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '2px', color: '#BA9A2D' }}>
+            Valor do Investimento
+          </label>
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+            <span style={{ position: 'absolute', left: '1.1rem', color: '#666666', fontSize: '1rem' }}>R$</span>
             <input 
               type="number" 
-              name="preco" // Identificador para a nossa Action
-              required
-              placeholder="0,00" 
-              step="0.01"
+              step="0.01" 
+              name="preco" 
+              required 
+              placeholder="0,00"
               style={{
-                backgroundColor: '#0A0A0A',
-                border: '1px solid #737373',
-                borderRadius: '4px',
-                padding: '0.8rem',
+                width: '100%',
+                padding: '1.1rem 1.1rem 1.1rem 2.8rem',
+                backgroundColor: '#0D0D0D',
+                border: '1px solid #222222',
+                borderRadius: '8px',
                 color: '#FFFFFF',
-                outline: 'none'
+                fontSize: '1rem',
+                outline: 'none',
+                letterSpacing: '0.5px'
               }}
             />
           </div>
+        </div>
 
-          {/* Campo: Tempo de Duração */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ color: '#737373', fontSize: '0.9rem' }}>Duração Estimada</label>
-            <select 
-              name="duracao" // Identificador para a nossa Action
-              style={{
-                backgroundColor: '#0A0A0A',
-                border: '1px solid #737373',
-                borderRadius: '4px',
-                padding: '0.8rem',
-                color: '#FFFFFF',
-                outline: 'none'
-              }}
-            >
-              <option value="15">15 minutos</option>
-              <option value="30">30 minutos</option>
-              <option value="45">45 minutos</option>
-              <option value="60">1 hora</option>
-            </select>
-          </div>
-
-          {/* Botão Salvar - Agora do tipo submit para disparar o formulário */}
-          <button 
-            type="submit" 
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#0A0A0A',
-              fontWeight: 'bold',
-              border: 'none',
-              borderRadius: '4px',
-              padding: '1rem',
-              cursor: 'pointer',
-              marginTop: '1rem'
-            }}
-          >
-            Salvar Serviço
-          </button>
-        </form>
-      </div>
+        <button type="submit" style={{
+          marginTop: '1rem',
+          padding: '1.2rem',
+          background: 'linear-gradient(135deg, #1e1915 0%, #12100e 100%)',
+          color: '#D4AF37',
+          border: '1px solid #D4AF37',
+          borderRadius: '8px',
+          fontSize: '0.95rem',
+          fontWeight: '700',
+          cursor: 'pointer',
+          textTransform: 'uppercase',
+          letterSpacing: '2px',
+          boxShadow: '0 6px 20px rgba(212, 175, 55, 0.08)',
+          transition: 'all 0.3s ease'
+        }}>
+          Adicionar Serviço Premium
+        </button>
+      </form>
     </div>
   );
 }
