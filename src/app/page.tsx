@@ -16,24 +16,24 @@ export default function Home() {
       color: '#E5E5E5'
     }}>
 
-      {/* FUNDO GÓTICO */}
+      {/* FUNDO GÓTICO (URL DIRETA) */}
       <div style={{
         position: 'absolute',
         inset: 0,
         backgroundImage: `
-          linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
-          url('/bg-barbearia.jpg')
+          linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)),
+          url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1400&q=80')
         `,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        filter: 'contrast(1.1) brightness(0.6)',
+        filter: 'brightness(0.5)',
         zIndex: 0
       }} />
 
       {/* CONTEÚDO */}
       <div style={{ position: 'relative', zIndex: 2, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-        {/* LOGO EM IMAGEM */}
+        {/* LOGO (TEMPORÁRIA VIA URL) */}
         <div style={{ 
           width: '100%', 
           maxWidth: '420px', 
@@ -41,7 +41,7 @@ export default function Home() {
           textAlign: 'center'
         }}>
           <img 
-            src="/logo-ozbarber.png"
+            src="https://i.imgur.com/8Km9tLL.png"
             alt="OZBarber Logo"
             style={{
               width: '100%',
