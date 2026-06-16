@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <div style={{ 
       backgroundColor: '#050505',
-      // Ajustado para o nome exato do arquivo no seu GitHub com espaços e extensão maiúscula
-      backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(5, 5, 5, 0.85)), url("/ChatGPT Image 16 de jun. de 2026, 13_39_58.png")',
+      // Carrega o cenário gótico premium direto de um link de alta velocidade estável
+      backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(5, 5, 5, 0.85)), url("https://images.unsplash.com/photo-1605497746444-ac9da5848af7?q=80&w=1200&auto=format&fit=crop")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundAttachment: 'fixed',
@@ -21,7 +21,7 @@ export default function Home() {
       overflowX: 'hidden'
     }}>
       
-      {/* ESPAÇO DA LOGO PRINCIPAL UTILIZANDO O ARQUIVO REAL COM NOME EXATO */}
+      {/* ESPAÇO DA LOGO PRINCIPAL UTILIZANDO A SUA IMAGEM DO GITHUB */}
       <div style={{ 
         width: '100%', 
         maxWidth: '520px', 
@@ -31,7 +31,7 @@ export default function Home() {
       }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img 
-          src="/ChatGPT Image 16 de jun. de 2026, 14_02_09.png" 
+          src="/logo.png" 
           alt="OZ Barber" 
           style={{ 
             width: '100%', 
