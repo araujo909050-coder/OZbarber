@@ -1,133 +1,101 @@
 import React from 'react';
-import { cadastrarProfissionalAction } from '../actions';
+import Link from 'next/link';
 
-export default function CadastroProfissionais() {
+export default function Home() {
   return (
     <div style={{ 
-      backgroundColor: '#0A0A0A', 
-      color: '#FFFFFF', 
+      backgroundColor: '#050505', 
+      color: '#E0E0E0', 
       minHeight: '100vh', 
       fontFamily: 'sans-serif',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
       padding: '2rem'
     }}>
-      {/* Cabeçalho */}
-      <div style={{ maxWidth: '500px', margin: '0 auto', marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '2rem', fontWeight: 'bold', borderBottom: '1px solid #1A1A1A', paddingBottom: '1rem' }}>
-          💈 OZbarber <span style={{ color: '#737373', fontSize: '1.2rem', fontWeight: 'normal' }}>| Equipe</span>
+      {/* Container do Logo (Logo minimalista geométrico OZ) */}
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        {/* Placeholder para o novo logo minimalista - Implementaremos a imagem depois */}
+        <div style={{ 
+          width: '100px', 
+          height: '100px', 
+          margin: '0 auto 1rem', 
+          border: '2px solid #D4AF37', // Borda dourada sutil
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '2rem',
+          fontWeight: 'bold',
+          color: '#C0C0C0' // Prata
+        }}>
+          OZ
+        </div>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', margin: '0 0 0.5rem', textTransform: 'uppercase', letterSpacing: '2px' }}>
+          OZbarber
         </h1>
+        <p style={{ color: '#A3A3A3', fontSize: '1rem', margin: 0 }}>
+          Premium Barber Management
+        </p>
       </div>
 
-      {/* Formulário de Cadastro */}
+      {/* Botões de Navegação Principal (Botões de metal escuro com ouro) */}
       <div style={{ 
-        maxWidth: '500px', 
-        margin: '0 auto', 
-        backgroundColor: '#1A1A1A', 
-        padding: '2rem', 
-        borderRadius: '8px',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.3)'
+        display: 'flex', 
+        flexDirection: 'column', 
+        gap: '1.5rem', 
+        width: '100%', 
+        maxWidth: '400px'
       }}>
-        <h2 style={{ fontSize: '1.3rem', marginBottom: '1.5rem', fontWeight: '600' }}>
-          Cadastrar Novo Profissional
-        </h2>
-
-        {/* Conexão com a Server Action */}
-        <form action={cadastrarProfissionalAction} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-          
-          {/* Campo: Nome */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ color: '#737373', fontSize: '0.9rem' }}>Nome do Profissional</label>
-            <input 
-              type="text" 
-              name="nome"
-              required
-              placeholder="Ex: Rodrigo Silva" 
-              style={{
-                backgroundColor: '#0A0A0A',
-                border: '1px solid #737373',
-                borderRadius: '4px',
-                padding: '0.8rem',
-                color: '#FFFFFF',
-                outline: 'none'
-              }}
-            />
-          </div>
-
-          {/* Campo: Email */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ color: '#737373', fontSize: '0.9rem' }}>E-mail</label>
-            <input 
-              type="email" 
-              name="email"
-              required
-              placeholder="rodrigo@ozbarber.com" 
-              style={{
-                backgroundColor: '#0A0A0A',
-                border: '1px solid #737373',
-                borderRadius: '4px',
-                padding: '0.8rem',
-                color: '#FFFFFF',
-                outline: 'none'
-              }}
-            />
-          </div>
-
-          {/* Campo: Função */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ color: '#737373', fontSize: '0.9rem' }}>Função / Cargo</label>
-            <input 
-              type="text" 
-              name="funcao"
-              required
-              placeholder="Ex: Barbeiro Master, Cabeleireiro, Visagista" 
-              style={{
-                backgroundColor: '#0A0A0A',
-                border: '1px solid #737373',
-                borderRadius: '4px',
-                padding: '0.8rem',
-                color: '#FFFFFF',
-                outline: 'none'
-              }}
-            />
-          </div>
-
-          {/* Campo: Porcentagem de Comissão */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-            <label style={{ color: '#737373', fontSize: '0.9rem' }}>Comissão (%)</label>
-            <input 
-              type="number" 
-              name="porcentagem"
-              required
-              placeholder="Ex: 40" 
-              max="100"
-              min="0"
-              style={{
-                backgroundColor: '#0A0A0A',
-                border: '1px solid #737373',
-                borderRadius: '4px',
-                padding: '0.8rem',
-                color: '#FFFFFF',
-                outline: 'none'
-              }}
-            />
-          </div>
-
-          {/* Botão Salvar - Tipo submit para disparar */}
-          <button 
-            type="submit" 
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#0A0A0A',
-              fontWeight: 'bold',
-              border: 'none',
-              borderRadius: '4px',
-              padding: '1rem',
-              cursor: 'pointer',
-              marginTop: '1rem'
-            }}
-          >
-            Salvar Colaborador
+        
+        {/* Botão Gerenciar Serviços */}
+        <Link href="/servicos" style={{ textDecoration: 'none' }}>
+          <button style={{
+            width: '100%',
+            padding: '1.2rem',
+            backgroundColor: '#1A1A1A', // Metal escuro
+            color: '#FFFFFF',
+            border: '1px solid #D4AF37', // Ouro velho
+            borderRadius: '8px',
+            fontSize: '1.1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            textTransform: 'uppercase',
+            letterSpacing: '1px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px',
+            transition: 'background-color 0.3s'
+          }}>
+            💈 GERENCIAR SERVIÇOS
           </button>
-        </form>
+        </Link>
+
+        {/* Botão Gerenciar Equipe */}
+        <Link href="/profissionais" style={{ textDecoration: 'none' }}>
+          <button style={{
+            width: '100%',
+            padding: '1.2rem',
+            backgroundColor: '#1A1A1A',
+            color: '#FFFFFF',
+            border: '1px solid #D4AF37',
+            borderRadius: '8px',
+            fontSize: '1.1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            textTransform: 'uppercase',
+            letterSpacing: '1px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px',
+            transition: 'background-color 0.3s'
+          }}>
+            👥 GERENCIAR EQUIPE
+          </button>
+        </Link>
       </div>
     </div>
   );
